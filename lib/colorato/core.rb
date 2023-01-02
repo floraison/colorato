@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+
 module Colorato
 
   COLOURS = Hash[*%w[
@@ -26,29 +27,27 @@ module Colorato
 
   ]].freeze
 
-  class Colours
+  class Colours; end
+  class NoColours; end
 
-    Colorato::COLOURS.each do |k, v|
-      if v.match(/\A\d/) # Ruby 2.3 doesn't have String#match?
-        class_eval(%{
-          def #{k}(s=nil)
-           s ? "[#{v}m" + s + "[0;0m" : "[#{v}m"
-           end })
-      else
-        class_eval(
-          "alias #{k} #{v}")
-      end
-    end
-  end
-
-  class NoColours
-
-    Colorato::COLOURS.each do |k, v|
-      if v.match(/\A\d/) # Ruby 2.3 doesn't have String#match?
-        class_eval("def #{k}(s=''); s; end")
-      else
-        class_eval("alias #{k} #{v}")
-      end
+  Colorato::COLOURS.each do |k, v|
+    if v.match(/\A\d/) # Ruby 2.3 doesn't have String#match?
+      ::Colorato::Colours.class_eval(%{
+        def #{k}(s=nil)
+          s ?
+            "\e[#{v}m\#{s}\e[0;0m" :
+            "\e[#{v}m"
+        end })
+      ::Colorato::NoColours.class_eval(%{
+        def #{k}(s=nil)
+          s ?
+            s :
+            ''
+        end })
+    else
+      c = %{ alias #{k} #{v} }
+      ::Colorato::Colours.class_eval(c)
+      ::Colorato::NoColours.class_eval(c)
     end
   end
 
