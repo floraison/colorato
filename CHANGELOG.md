@@ -1,5 +1,5 @@
 
 # colorato
 
-## 1.0.0 not yet released
+## 0.9.0 not yet released
 
