@@ -1,3 +1,23 @@
 
-.vim*
+*.swp
+.vimrc
+.viminfo
+.vimgrep
+.vimspec
+.vimmarks
+
+pkg/
+
+.ruby-version
+#.rspec
+
+.errors
+.rspec.out
+
+.bxsinfo.yaml
+.bxsenvs.yaml
+
+.todo.md
+
+Gemfile.lock
 
