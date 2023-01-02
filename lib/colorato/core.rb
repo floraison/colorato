@@ -31,7 +31,9 @@ module Colorato
   class NoColours; end
 
   Colorato::COLOURS.each do |k, v|
+
     if v.match(/\A\d/) # Ruby 2.3 doesn't have String#match?
+
       ::Colorato::Colours.class_eval(%{
         def #{k}(s=nil)
           s ?
@@ -44,7 +46,9 @@ module Colorato
             s :
             ''
         end })
+
     else
+
       c = %{ alias #{k} #{v} }
       ::Colorato::Colours.class_eval(c)
       ::Colorato::NoColours.class_eval(c)
@@ -62,7 +66,9 @@ module Colorato
   def self.colours(opts={})
 
     c = nil;
-      [ :color, :colour, :colors, :colours ].each do |k|
+      %w[ color colour colors colours ].each do |k|
+        if opts.has_key?(k); c = opts[k]; break; end
+        k = k.to_sym;
         if opts.has_key?(k); c = opts[k]; break; end
       end
 
