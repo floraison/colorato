@@ -15,7 +15,7 @@ Colorato::COLOURS.each do |k, v|
 end
 puts "end; end"
 puts
-puts "module NoColorato; class << self"
+puts "module NoColo; class << self"
 Colorato::COLOURS.each do |k, v|
   if v.match?(/\A\d/)
     puts "  def #{k}(s=nil); s ? s : ''; end"
