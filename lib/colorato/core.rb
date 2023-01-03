@@ -29,7 +29,7 @@ module Colorato
 
   class Colours; end
   class NoColours; end
-
+    #
   Colorato::COLOURS.each do |k, v|
 
     if v.match(/\A\d/) # Ruby 2.3 doesn't have String#match?
@@ -66,6 +66,10 @@ module Colorato
 
       @no_colours ||= NoColours.new
     end
+
+    alias colors colours
+    alias nocolors no_colours
+    alias no_colors no_colours
   end
 end
 
