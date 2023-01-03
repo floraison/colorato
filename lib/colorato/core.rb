@@ -55,34 +55,17 @@ module Colorato
     end
   end
 
-  @colours = Colours.new
-  @no_colours = NoColours.new
+  class << self
 
-  def self.no_colours
+    def colours
 
-    @no_colours
-  end
+      @colours ||= Colours.new
+    end
 
-  def self.colours(opts={})
+    def no_colours
 
-    c = nil;
-      %w[ color colour colors colours ].each do |k|
-        if opts.has_key?(k); c = opts[k]; break; end
-        k = k.to_sym;
-        if opts.has_key?(k); c = opts[k]; break; end
-      end
-
-    return @colours if c == true
-    return @no_colours if c == false
-
-    o = opts[:out] || $stdout
-
-    return @colours if (
-      (o.respond_to?(:log_colours?) ? o.log_colours? : o.tty?) ||
-      ($0[-6..-1] == '/rspec' &&
-        (ARGV.include?('--tty') || ARGV.include?('--color'))))
-
-    @no_colours
+      @no_colours ||= NoColours.new
+    end
   end
 end
 

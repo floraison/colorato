@@ -7,5 +7,5 @@ module Colorato
 end
 
 require 'colorato/core'
-require 'colorato/module'
+require 'colorato/more'
 

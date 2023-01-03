@@ -25,36 +25,6 @@ describe Colorato do
       end
     end
   end
-
-  {
-
-    {} => ::Colorato::Colours,
-    { color: true } => ::Colorato::Colours,
-    { 'color' => true } => ::Colorato::Colours,
-    { colour: true } => ::Colorato::Colours,
-    { 'colour' => true } => ::Colorato::Colours,
-    { colors: true } => ::Colorato::Colours,
-    { 'colors' => true } => ::Colorato::Colours,
-    { colours: true } => ::Colorato::Colours,
-    { 'colours' => true } => ::Colorato::Colours,
-
-    { color: false } => ::Colorato::NoColours,
-    { 'color' => false } => ::Colorato::NoColours,
-    { colour: false } => ::Colorato::NoColours,
-    { 'colour' => false } => ::Colorato::NoColours,
-    { colors: false } => ::Colorato::NoColours,
-    { 'colors' => false } => ::Colorato::NoColours,
-    { colours: false } => ::Colorato::NoColours,
-    { 'colours' => false } => ::Colorato::NoColours,
-
-  }.each do |k, v|
-
-    it ".colours(#{k.inspect[1..-2]}) returns a #{v} instance" do
-
-      r = ::Colorato.colours(k)
-      expect(r.class).to eq(v)
-    end
-  end
 end
 
 describe Colorato do
