@@ -14,12 +14,17 @@ module Colorato; class << self
 
   def truncate_string(s, maxlen, post='...')
 
+    post = '…' if post == :ellipsis
+
     ncl = no_colour_length(s)
     r = StringIO.new
     l = 0
 
+    col = false
+
     s.scan(/(\x1b\[\d+(?:;\d+)?m|[^\x1b]+)/) do |ss, _|
       if ss[0, 1] == ""
+        col = true
         r << ss
       else
         ss = ss[0, maxlen - l]
@@ -30,6 +35,8 @@ module Colorato; class << self
     end
 
     return r.string if l < maxlen
+
+    r << "\e[0;0m" if col
 
     if post.is_a?(String)
       r << post
