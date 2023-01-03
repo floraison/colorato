@@ -40,7 +40,8 @@ test: spec
 
 ## specific to project ##
 
-# nothing
+colo.rb: lib/colorato/core.rb
+	ruby mak/compact.rb > colo.rb
 
 
 .PHONY: count_lines scan gemspec_validate name cw build push spec info tzones
