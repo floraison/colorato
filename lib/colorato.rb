@@ -18,19 +18,25 @@ if __FILE__ == $0
       a << m[1] if m
       a }
 
-  %w[ (default) bright dim ].each do |filter|
+  #%w[ (default) bright dim ].each do |filter|
 
-    puts
-    puts filter
+  puts
 
-    f = Colorato.colours.send(filter) rescue ''
+  fs = %w[ (def) bright dim ]
 
-    cs.each { |n|
+  puts "%14s  %-9s  %-9s  %-9s" % ([ '' ] + fs)
+  puts
+
+  cs.each do |n|
+    a = [ n ]
+    fs.each do |f|
+      f = Colorato.colours.send(f) rescue ''
       fgc = f + Colorato.colours.send(n)
       bgc = f + Colorato.colours.send("bg_#{n}")
-      t0 = fgc + 'Text' + Colorato.colours.reset
-      t1 = bgc + '    ' + Colorato.colours.reset
-      puts "%14s: %s %s" % [ n, t0, t1 ] }
+      a << (fgc + 'Text' + Colorato.colours.reset)
+      a << (bgc + '    ' + Colorato.colours.reset)
+    end
+    puts "%14s: %s %s  %s %s  %s %s" % a
   end
 
   puts
