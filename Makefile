@@ -33,9 +33,9 @@ build: gemspec_validate
 push: build
 	gem push --otp "$(OTP)" pkg/$(NAME)-$(VERSION).gem
 
-spec:
-	bundle exec rspec
-test: spec
+test:
+	bundle exec proba
+t: test
 
 
 ## specific to project ##

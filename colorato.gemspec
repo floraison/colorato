@@ -40,7 +40,8 @@ terminal colors extracted from flor
   #s.add_runtime_dependency 'raabro', '~> 1.4'
   #s.add_runtime_dependency 'et-orbi', '~> 1', '>= 1.2.7'
 
-  s.add_development_dependency 'rspec', '~> 3.12'
+  #s.add_development_dependency 'rspec', '~> 3.12'
+  s.add_development_dependency 'probatio', '~> 1'
 
   s.require_path = 'lib'
 end

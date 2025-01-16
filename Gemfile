@@ -1,9 +1,11 @@
 
 source 'https://rubygems.org'
 
-#gem 'raabro'
-#gem 'raabro', git: 'https://github.com/floraison/raabro'  # temporarily
-#gem 'raabro', path: '../raabro/'                          # temporarily
+#gem 'probatio'
+gem 'probatio', git: 'https://github.com/floraison/probatio'
+#gem 'probatio', path: '../raabro/'
+  #
+  # temporarily
 
 gemspec
 
