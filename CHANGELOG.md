@@ -2,7 +2,7 @@
 # colorato
 
 
-## 1.1.0 not yet released
+## 1.1.0 released 2025-01-16
 
 * colorato.blue { 'blo' + 'ck' }
 * Show the colours when `ruby lib/colorato.rb`
