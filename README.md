@@ -14,8 +14,10 @@ NC = Colorato.nocolours
 
 C.blue # => "\e[34m"
 C.blue('car') # => "\e[34mcar\e[0;0m"
+C.blue { 'car' } # => "\e[34mcar\e[0;0m"
 
 NC.blue('car') # => "car"
+NC.blue { 'car' } # => "car"
 ```
 
 ### .decolour(string)

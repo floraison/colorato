@@ -36,16 +36,14 @@ module Colorato
     if v.match(/\A\d/) # Ruby 2.3 doesn't have String#match?
 
       ::Colorato::Colours.class_eval(%{
-        def #{k}(s=nil)
-          s ?
-            "\e[#{v}m\#{s}\e[0;0m" :
+        def #{k}(s=nil, &block)
+          (x = (block && block.call) || s) ?
+            "\e[#{v}m\#{x}\e[0;0m" :
             "\e[#{v}m"
         end })
       ::Colorato::NoColours.class_eval(%{
-        def #{k}(s=nil)
-          s ?
-            s :
-            ''
+        def #{k}(s=nil, &block)
+          (x = (block && block.call) || s) ? x : ''
         end })
 
     else

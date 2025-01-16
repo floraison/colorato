@@ -17,6 +17,11 @@ group Colorato do
         assert Colorato.colours.blue('nada'), "\e[34mnada\e[0;0m"
       end
 
+      test 'wraps a block' do
+
+        assert Colorato.colours.blue { 123 }, "\e[34m123\e[0;0m"
+      end
+
       test 'returns the code string' do
 
         assert Colorato.colours.blue, "\e[34m"
@@ -26,6 +31,7 @@ group Colorato do
 end
 
 group Colorato do
+
   group '.no_colours' do
 
     group '.blue' do
