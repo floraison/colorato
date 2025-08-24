@@ -55,4 +55,3 @@ module Colorato; class << self
   alias nocolour_length no_colour_length
 end; end
 
-
