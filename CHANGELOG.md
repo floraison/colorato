@@ -4,7 +4,8 @@
 
 ## 1.1.1 not yet released
 
-* Sort color names in .show_colours
+* Introduce Colorato .colour_if_tty and .colour_if_supported
+* Sort colour names in .show_colours
 
 
 ## 1.1.0 released 2025-01-16

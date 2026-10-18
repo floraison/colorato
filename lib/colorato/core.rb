@@ -70,6 +70,36 @@ module Colorato
     alias nocolors no_colours
     alias no_colors no_colours
 
+    def colour_if_tty(out=$stdout)
+
+      return (out.tty? rescue false) ? colours : no_colours
+    end
+    alias color_if_tty colour_if_tty
+
+    def colour_if_supported(out=$stdout)
+
+      return no_colours unless out.tty?
+
+      return no_colours if ENV['NO_COLOR']
+
+      return no_colours if ENV['FORCE_COLOR'] || ENV['FORCE_COLOUR']
+        # colorato...
+
+      return colours if ENV['COLORTERM']
+
+      t = ENV['TERM']
+
+      return colours if t == nil
+      return no_colours if t == 'dumb'
+
+      #return colours if t == 'screen'
+      #return colours if t.include?('color')
+      #return colours if t.include?('xterm')
+
+      colours
+    end
+    alias color_if_supported colour_if_supported
+
     def show_colours
 
       cs = Colorato.colours.public_methods
