@@ -77,6 +77,7 @@ module Colorato
           m = n.to_s.match(/^bg_(.+)$/)
           a << m[1] if m
           a }
+        .sort
 
       #%w[ (default) bright dim ].each do |filter|
 

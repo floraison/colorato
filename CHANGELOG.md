@@ -4,10 +4,12 @@
 
 ## 1.1.1 not yet released
 
+* Sort color names in .show_colours
+
 
 ## 1.1.0 released 2025-01-16
 
-* colorato.blue { 'blo' + 'ck' }
+* Colorato.blue { 'blo' + 'ck' }
 * Show the colours when `ruby lib/colorato.rb`
 
 

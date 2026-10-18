@@ -43,6 +43,9 @@ t: test
 colo.rb: lib/colorato/core.rb
 	ruby mak/compact.rb > colo.rb
 
+show:
+	ruby -Ilib -rcolorato -e "Colorato.show_colours"
+
 
 .PHONY: count_lines scan gemspec_validate name cw build push spec info tzones
 
