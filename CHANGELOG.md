@@ -2,7 +2,7 @@
 # colorato
 
 
-## 1.2.0 not yet released
+## 1.2.0 released 2026-10-18
 
 * Introduce Colorato .colour_if_tty and .colour_if_supported
 * Sort colour names in .show_colours
